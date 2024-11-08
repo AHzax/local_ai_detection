@@ -3,9 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:local_ai_detection/core/constants/app_colors.dart';
 import 'package:local_ai_detection/core/gen/fonts.gen.dart';
-import 'package:local_ai_detection/features/registration/presentation/bloc/registration_bloc.dart';
 import 'package:local_ai_detection/features/splash/presentation/bloc/splash_bloc.dart';
-
 
 import 'features/splash/presentation/pages/splash_screen.dart';
 
@@ -19,8 +17,6 @@ class App extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => SplashBloc()..add(const InitEvent())),
-        BlocProvider(create: (_) => RegistrationBloc()),
-        // BlocProvider(create: (_) => HomeBloc()),
       ],
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,

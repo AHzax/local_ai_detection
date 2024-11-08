@@ -9,10 +9,8 @@ import 'package:local_ai_detection/core/constants/app_colors.dart';
 import 'package:local_ai_detection/core/gen/assets.gen.dart';
 
 class HomeScreen extends StatefulWidget {
-  final String nameController;
   const HomeScreen({
     super.key,
-    required this.nameController,
   });
 
   @override
@@ -131,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Vehicle Detail",
+          "Detection Detail",
           style: TextStyle(
             color: AppColors.black,
             fontWeight: FontWeight.bold,
@@ -160,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 14),
               child: Text(
-                "Report:",
+                "Summary",
                 style: TextStyle(
                   fontSize: 20,
                   color: AppColors.primary,
@@ -178,11 +176,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       InfoCardWidget(
-                        icon: Assets.svgs.driving,
-                        title: "Vehicle No",
-                        subTitle: widget.nameController,
-                      ),
-                      InfoCardWidget(
                         icon: Assets.svgs.alarm,
                         title: "Detected Time",
                         subTitle: yoloResults.isEmpty
@@ -194,12 +187,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(height: 24.sp),
                   InfoCardWidget(
                     icon: Assets.svgs.search,
-                    title: "Violation Status",
+                    title: "Detection Status",
                     subTitle: yoloResults.isEmpty
                         ? 'none'
                         : yoloResults.first["tag"].toString() == "phone"
-                            ? "Driver is using ${yoloResults.first["tag"]}"
-                            : "Driver is ${yoloResults.first["tag"]}",
+                            ? "Detection is ${yoloResults.first["tag"]}"
+                            : "Detection is ${yoloResults.first["tag"]}",
                   ),
                 ],
               ),

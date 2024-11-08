@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:local_ai_detection/core/gen/assets.gen.dart';
+import 'package:local_ai_detection/features/home/presentation/pages/home_screen.dart';
 import 'package:local_ai_detection/features/splash/presentation/bloc/splash_bloc.dart';
-
-import '../../../registration/presentation/pages/registration_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -17,22 +16,14 @@ class SplashScreen extends StatelessWidget {
           if (state is SplashInitial) {
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(
-                builder: (_) => RegistrationScreen(),
-              ),
+              MaterialPageRoute(builder: (context) => HomeScreen()),
             );
             return;
           }
         },
         child: Stack(
           fit: StackFit.expand,
-          children: [
-            Assets.svgs.background.svg(),
-            Transform.scale(
-              scale: 0.4.sp,
-              child: Assets.images.logo.image(),
-            ),
-          ],
+          children: [Icon(Icons.camera, size: 400)],
         ),
       ),
     );
